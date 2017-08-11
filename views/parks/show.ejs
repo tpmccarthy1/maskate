@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <head>
+    <% include ../partials/head %>
+    </head>
+  </head>
+  <body>
+    <header>
+      <% include ../partials/header %>
+    </header>
+    <div class="container">
+      <h3><a href="/parks">Skatepark List</a></h3>
+      <h1>Park Detail</h1>
+      <ul>
+          <li>
+            <span>Name: </span><span><%= park.name %></span>
+          </li>
+          <li>
+            <span>Street: </span><span><%= park.street %></span>
+          </li>
+          <li>
+            <span>Town: </span><span><%= park.town %></span>
+          </li>
+          <li>
+            <span>State: </span><span><%= park.state %></span>
+          </li>
+          <li>
+            <span>County: </span><span><%= park.county %></span>
+          </li>
+          <li>
+            <span>Hours: </span><span><%= park.hours %></span>
+          </li>
+           <li>
+            <span>Hemlets: </span><span><%= park.helmets %></span>
+          </li>
+          <li>
+            <span>Description: </span><span><%= park.description %></span>
+          </li>
+
+      </ul>
+      <h3><a href="/parks/edit/<%= park._id%>">EDIT</a></h3>
+      <form action="/parks/delete/<%= park._id%>" method="post">
+        <button type="submit">DELETE</button>
+      </form>
+    </div>
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/scripts.js"></script>
+  </body>
+</html>

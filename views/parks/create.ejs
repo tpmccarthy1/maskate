@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <header>
+      <% include ../partials/header %>
+    </header>
+    <div class="container">
+      <h3><a href="/parks">Skatepark List</a></h3>
+      <h1>Create New Park</h1>
+      <form action="/parks/save" method="post">
+          <ul>
+            <li>
+              <label for="name">Name</label><input type="text" name="name" />
+            </li>
+            <li>
+              <label for="street">Street</label><input name="street"></input>
+            </li>
+            <li>
+              <label for="town">Town</label><input name="town"></input>
+            </li>
+            <li>
+              <label for="state">State</label>
+              <select name="state" id="state" >
+                <option selected="selected">Select The State</option>
+                <option value="NJ">New Jersey</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="MD">Maryland</option>
+                <option value="DE">Delaware</option>
+              </select>
+            </li>
+            <li>
+              <label for="county">County</label>
+              <select name="county" id="county">
+                  <option selected="selected">Select The County</option>
+                  <!-- NJ Counties -->
+                  <option class="NJ" value="Atlantic">Atlantic</option>
+                  <option class="NJ" value="Bergen">Bergen</option>
+                  <option class="NJ" value="Burlington"">Burlington</option>
+                  <option class="NJ" value="Camden">Camden</option>
+                  <option class="NJ" value="Cape May">Cape May</option>
+                  <option class="NJ" value="Cumberland">Cumberland</option>
+                  <option class="NJ" value="Essex">Essex</option>
+                  <option class="NJ" value="Gloucester">Gloucester</option>
+                  <option class="NJ" value="Hudson">Hudson</option>
+                  <option class="NJ" value="Hunterdon">Hunterdon</option>
+                  <option class="NJ" value="Mercer">Mercer</option>
+                  <option class="NJ" value="Middlesex">Middlesex</option>
+                  <option class="NJ" value="Monmouth">Monmouth</option>
+                  <option class="NJ" value="Morris">Morris</option>
+                  <option class="NJ" value="Ocean">Ocean</option>
+                  <option class="NJ" value="Passaic">Passaic</option>
+                  <option class="NJ" value="Salem">Salem</option>
+                  <option class="NJ" value="Somerset">Somerset</option>
+                  <option class="NJ" value="Sussex">Sussex</option>
+                  <option class="NJ" value="Union">Union</option>
+                  <option class="NJ" value="Warren">Warren</option>
+                  <!-- PA Counties -->
+                  <option class="PA" value="Adams">Adams</option>
+                  <option class="PA" value="Allegheny">Allegheny</option>
+                  <option class="PA" value="Armstrong">Armstrong</option>
+                  <option class="PA" value="Beaver">Beaver</option>
+                  <option class="PA" value="Bedford">Bedford</option>
+                  <option class="PA" value="Berks">Berks</option>
+                  <option class="PA" value="Blair">Blair</option>
+                  <option class="PA" value="Bradford">Bradford</option>
+                  <option class="PA" value="Bucks">Bucks</option>
+                  <option class="PA" value="Butler">Butler</option>
+                  <option class="PA" value="Cambria">Cambria</option>
+                  <option class="PA" value="Cameron">Cameron</option>
+                  <option class="PA" value="Carbon">Carbon</option>
+                  <option class="PA" value="Centre">Centre</option>
+                  <option class="PA" value="Chester">Chester</option>
+                  <option class="PA" value="Clarion">Clarion</option>
+                  <option class="PA" value="Clearfield">Clearfield</option>
+                  <option class="PA" value="Clinton">Clinton</option>
+                  <option class="PA" value="Columbia">Columbia</option>
+                  <option class="PA" value="Crawford">Crawford</option>
+                  <option class="PA" value="Cumberland">Cumberland</option>
+                  <option class="PA" value="Dauphin">Dauphin</option>
+                  <option class="PA" value="Delaware">Delaware</option>
+                  <option class="PA" value="Elk">Elk</option>
+                  <option class="PA" value="Erie">Erie</option>
+                  <option class="PA" value="Fayette">Fayette</option>
+                  <option class="PA" value="Forest">Forest</option>
+                  <option class="PA" value="Franklin">Franklin</option>
+                  <option class="PA" value="Fulton">Fulton</option>
+                  <option class="PA" value="Greene">Greene</option>
+                  <option class="PA" value="Huntingdon">Huntingdon</option>
+                  <option class="PA" value="Indiana">Indiana</option>
+                  <option class="PA" value="Jefferson">Jefferson</option>
+                  <option class="PA" value="Juniata">Juniata</option>
+                  <option class="PA" value="Lackawanna">Lackawanna</option>
+                  <option class="PA" value="Lancaster">Lancaster</option>
+                  <option class="PA" value="Lawrence">Lawrence</option>
+                  <option class="PA" value="Lebanon">Lebanon</option>
+                  <option class="PA" value="Lehigh">Lehigh</option>
+                  <option class="PA" value="Luzerne">Luzerne</option>
+                  <option class="PA" value="Lycoming">Lycoming</option>
+                  <option class="PA" value="McKean">McKean</option>
+                  <option class="PA" value="Mercer">Mercer</option>
+                  <option class="PA" value="Mifflin">Mifflin</option>
+                  <option class="PA" value="Monroe">Monroe</option>
+                  <option class="PA" value="Montgomery">Montgomery</option>
+                  <option class="PA" value="Montour">Montour</option>
+                  <option class="PA" value="Northampton">Northampton</option>
+                  <option class="PA" value="Northumberland">Northumberland</option>
+                  <option class="PA" value="Perry">Perry</option>
+                  <option class="PA" value="Philadelphia">Philadelphia</option>
+                  <option class="PA" value="Pike">Pike</option>
+                  <option class="PA" value="Potter">Potter</option>
+                  <option class="PA" value="Schuylkill">Schuylkill</option>
+                  <option class="PA" value="Snyder">Snyder</option>
+                  <option class="PA" value="Somerset">Somerset</option>
+                  <option class="PA" value="Sullivan">Sullivan</option>
+                  <option class="PA" value="Susquehanna">Susquehanna</option>
+                  <option class="PA" value="Tioga">Tioga</option>
+                  <option class="PA" value="Union">Union</option>
+                  <option class="PA" value="Venango">Venango</option>
+                  <option class="PA" value="Warren">Warren</option>
+                  <option class="PA" value="Washington">Washington</option>
+                  <option class="PA" value="Wayne">Wayne</option>
+                  <option class="PA" value="Westmoreland">Westmoreland</option>
+                  <option class="PA" value="Wyoming">Wyoming</option>
+                  <option class="PA" value="York">York</option>
+                  <!-- MD Counties -->
+                  <option class="MD" value="Allegany">Allegany</option>
+                  <option class="MD" value="Anne Arundel">Anne Arundel</option>
+                  <option class="MD" value="Baltimore City">Baltimore City</option>
+                  <option class="MD" value="Baltimore County">Baltimore County</option>
+                  <option class="MD" value="Calvert">Calvert</option>
+                  <option class="MD" value="Caroline">Caroline</option>
+                  <option class="MD" value="Carroll">Carroll</option>
+                  <option class="MD" value="Cecil">Cecil</option>
+                  <option class="MD" value="Charles">Charles</option>
+                  <option class="MD" value="Dorchester">Dorchester</option>
+                  <option class="MD" value="Frederick">Frederick</option>
+                  <option class="MD" value="Garrett">Garrett</option>
+                  <option class="MD" value="Hardford">Harford</option>
+                  <option class="MD" value="Howard">Howard</option>
+                  <option class="MD" value="Kent">Kent</option>
+                  <option class="MD" value="Montgomery">Montgomery</option>
+                  <option class="MD" value="Prince George's">Prince George's</option>
+                  <option class="MD" value="Queen Anne's">Queen Anne's</option>
+                  <option class="MD" value="Somerset">Somerset</option>
+                  <option class="MD" value="St. Mary's">St. Mary's</option>
+                  <option class="MD" value="Talbot">Talbot</option>
+                  <option class="MD" value="Washington">Washington</option>
+                  <option class="MD" value="Wicomico">Wicomico</option>
+                  <option class="MD" value="Worcester">Worcester</option>
+                  <!-- DE counties -->
+                  <option class="DE" value="Kent">Kent</option>
+                  <option class="DE" value="New Castle">New Castle</option>
+                  <option class="DE" value="Sussex">Sussex</option>
+              </select>
+            </li>
+            <li>
+              <label for="hours">Hours</label><textarea name="hours"></textarea>     
+            </li>
+            <li>
+              <label for="helmets">Helmets</td><input type="checkbox" name="helmets"></input>
+            </li>
+            <li>
+              <label for="description">Description</label>
+              <textarea name="description"></textarea>
+            </li>
+            <li>
+              <input type="submit" value="Save" />
+            </li>
+          </ul>
+      </form>
+    </div>
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+  </body>
+</html>

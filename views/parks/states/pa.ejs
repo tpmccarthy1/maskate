@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../../partials/head %>
+  </head>
+  <body>
+    <header>
+      <% include ../../partials/header %>
+    </header>
+    <div class="container">
+      <h1>Pennsylvania Skateparks</h1>
+      <% if(parks.length>0) { %>
+      <div>
+          <ul>
+          <% for(var i=0; i<parks.length;i++){if(parks[i].state == "PA"){%>
+              <li><a href="/parks/show/<%= parks[i]._id%>"><%= parks[i].name%></a></li> 
+          <% }} %>
+          </ul>
+          <% } %>
+          </ul>
+      </div>
+      <div><h2><a href="/parks">Back to States.</a></h2></div>
+    </div>
+    <footer>
+        <% include ../../partials/footer %>
+    </footer>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/scripts.js"></script>
+  </body>
+</html>

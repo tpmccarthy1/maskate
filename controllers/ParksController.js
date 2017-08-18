@@ -1,6 +1,9 @@
 var mongoose = require("mongoose");
 var express = require("express");
 var app = express();
+var path = require('path');
+var multer = require("multer");
+var fs = require('fs');
 
 
 //require Park model
@@ -10,6 +13,10 @@ var Park = mongoose.model("Park");
 //create controller for CRUD operations
 
 var parkController = {};
+
+
+//global id variable for saving images
+var id; 
 
 //Add show list of parks function.
 
@@ -78,6 +85,7 @@ parkController.show = function(req, res){
 		}
 		else{
 			res.render("../views/parks/show", {park: park});
+
 		}
 	});
 };
@@ -90,20 +98,66 @@ parkController.create = function(req, res) {
 
 //Add save new park function.
 
-parkController.save = function(req, res) {
-  var park = new Park(req.body);
+parkController.save = function(req, res, next) {
 
-  park.save(function(err) {
-    if(err) {
-      console.log(err);
-      res.render("../views/parks/create");
-    } else {
-      console.log("Successfully created a park.");
-      res.redirect("/parks/show/"+park._id);
+	   //multer settings	
+	   var storage =   multer.diskStorage({
+  		destination: function (req, file, callback) {
+    		callback(null, './public/uploads');
+  			},
+ 		filename: function (req, file, callback) {
+    		callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+  			}
+		});
 
-    }
-  });
+	   	//upload allf iles in form
+  		var upload = multer({ storage : storage }).any();
+
+		upload(req,res,function(err) {
+        // console.log(req.body);
+        // console.log(req.files);
+        if(err) {
+            return res.end(console.log(err));
+        }
+
+        var testBoolean = false;
+
+		var park = new Park ({
+	  		name: req.body.name,
+	  		street: req.body.street,
+	  		town: req.body.town,
+	  		county: req.body.county,
+	  		state: req.body.state,
+	  		hours: req.body.hours,
+	  		helmets: req.body.helmets,
+	  		description: req.body.description,
+	  		imgs: {
+	  			img0: req.files[0] ? req.files[0].filename : null,
+	  			img1: req.files[1] ? req.files[1].filename : null,
+	  			img2: req.files[2] ? req.files[2].filename : null,
+	  			img3: req.files[3] ? req.files[3].filename : null,
+	  		} 
+	  		
+  		});
+
+   		park.save(function(err) {
+
+   		if(err) {
+	      console.log(err);
+	      res.render("../views/parks/create");
+   		 } else {
+	      console.log("Successfully created a park.");
+	      id = (park._id);
+	      console.log(id);
+	      res.redirect("/parks/show/"+id);
+
+   		 }
+  		});
+
+    	});
+
 };
+
 
 //Add edit park by id function, redirects to edit page.
 
@@ -140,6 +194,7 @@ parkController.delete = function (req, res) {
 		else{
 			console.log("Park deleted.");
 			res.redirect("/parks")
+			
 		}
 	});
 };

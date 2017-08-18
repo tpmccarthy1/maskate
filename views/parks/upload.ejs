@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <header>
+      <% include ../partials/header %>
+    </header>
+    <div class="container">
+      <form action="/parks/saveImages" method="POST"  enctype="multipart/form-data"> 
+          <input type="file" name="avatar">
+          <input type="submit" value="submit">
+      </form>
+    </div>
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+  </body>
+</html>

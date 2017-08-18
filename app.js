@@ -18,7 +18,7 @@ app.use('/parks', parks);
 
 //serve client side js and css
 app.use(express.static('public'));
-app.use(express.static('uploads'));
+
 
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;

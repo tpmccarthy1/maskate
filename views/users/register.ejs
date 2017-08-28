@@ -8,20 +8,17 @@
       <% include ../partials/header %>
     </header>
     <div class="container">
-      <h1>Registration needed to add new parks. </h1>
-      <form class="form-signin" role="form" action="/parks/register" method="post" >
-      <h2 class="form-signin-heading">Sign Up here</h2>
-      <input class="form-control" type="text" name="email" placeholder="Your E-Mail"/>
-      <input class="form-control" type="text" name="username" placeholder="Your Username"/>
-      <input class="form-control" type="password" name="password" placeholder="Your Password"/>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
-    </form>
+    <div class="jumbotron">
+      <h1>User Registration </h1>
+      <h2>Register to add new parks.</h2>
+        <% include ../partials/regForm %>
+    </div>
     </div>
     </div>
     <footer>
         <% include ../partials/footer %>
     </footer>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/scripts.js"></script>
+    <% include ../partials/scripts %>
+    <script type="text/javascript" src="../../js/scripts.js"></script>
   </body>
 </html>

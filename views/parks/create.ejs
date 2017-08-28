@@ -8,9 +8,10 @@
       <% include ../partials/header %>
     </header>
     <div class="container">
-      <h3><a href="/parks">Skatepark List</a></h3>
+    <div class="jumbotron">
+      <h3><a href="/">Skatepark List</a></h3>
       <h1>Create New Park</h1>
-      <form action="/parks/save" method="post" enctype="multipart/form-data">
+      <form action="/save" method="post" enctype="multipart/form-data">
           <ul>
             <li>
               <label for="name">Name</label><input type="text" name="name" />
@@ -191,13 +192,13 @@
             </li>
           </ul>
       </form>
-
+    </div>  
     </div>
     <footer>
         <% include ../partials/footer %>
     </footer>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/scripts.js"></script>
+    <% include ../partials/scripts %>
+    <script type="text/javascript" src="../../js/scripts.js"></script>
     <script>
 
 </script>

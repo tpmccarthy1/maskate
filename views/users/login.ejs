@@ -8,20 +8,23 @@
       <% include ../partials/header %>
     </header>
     <div class="container">
-      <h1>Sign In</h1>
-      <form class="form-signin" role="form" action="/parks/login" method="POST">
+    <div class="jumbotron">
+      <h1>You must log in to add a new park.</h1>
+      <form class="form-signin" role="form" action="/login" method="POST">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label class="sr-only" for="inputEmail"></label>
         <input class="form-control" type="text" name="username" id="inputEmail" placeholder="Username" required="required" autofocus="autofocus"/>
         <input class="form-control" type="password" name="password" id="inputPassword" placeholder="Password"/>
         <button class="btn btn-lg btn-primary btn-block" type="submit">LOGIN</button>
       </form>
+      <span>If you are not a user click <a href="/register">here</a> to register</span>
+    </div>
     </div>
     </div>
     <footer>
         <% include ../partials/footer %>
     </footer>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/scripts.js"></script>
+    <% include ../partials/scripts %>
+    <script type="text/javascript" src="../../js/scripts.js"></script>
   </body>
 </html>

@@ -145,7 +145,7 @@ parkController.save = function(req, res, next) {
 	      console.log("Successfully created a park.");
 	      id = (park._id);
 	      console.log(id);
-	      res.redirect("/parks/show/"+id);
+	      res.redirect("/show/"+id);
 
    		 }
   		});
@@ -176,7 +176,7 @@ parkController.update = function(req, res){
 			console.log(err);
 			res.render("../views/parks/edit", {park: req.body});
 		}
-		res.redirect("/parks/show/"+park._id);
+		res.redirect("/show/"+park._id);
 	});
 };
 
@@ -189,7 +189,7 @@ parkController.delete = function (req, res) {
 		}
 		else{
 			console.log("Park deleted.");
-			res.redirect("/parks")
+			res.redirect("/")
 
 		}
 	});

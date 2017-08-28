@@ -8,20 +8,22 @@
       <% include ../partials/header %>
     </header>
     <div class="container">
+    <div class="jumbotron">
       <h1>Choose a state</h1>
       <div>
         <ul>
-          <li><h2><a href="/parks/states/nj">New Jersey</a></h2></li>
-          <li><h2><a href="/parks/states/de">Delaware</a></h2></li>
-          <li><h2><a href="/parks/states/pa">Pennsylvania</a></h2></li>
-          <li><h2><a href="/parks/states/md">Maryland</a></h2></li>       
+          <li><h2><a href="/states/nj">New Jersey</a></h2></li>
+          <li><h2><a href="/states/de">Delaware</a></h2></li>
+          <li><h2><a href="/states/pa">Pennsylvania</a></h2></li>
+          <li><h2><a href="/states/md">Maryland</a></h2></li>       
         </ul>
       </div>
+    </div>
     </div>
     <footer>
         <% include ../partials/footer %>
     </footer>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/scripts.js"></script>
+    <% include ../partials/scripts %>
+    <script type="text/javascript" src="../../js/scripts.js"></script>
   </body>
 </html>

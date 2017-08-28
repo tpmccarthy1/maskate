@@ -8,23 +8,25 @@
       <% include ../../partials/header %>
     </header>
     <div class="container">
+    <div class="jumbotron">
       <h1>New Jersey Skateparks</h1>
       <% if(parks.length>0) { %>
       <div>
           <ul>
           <% for(var i=0; i<parks.length;i++){if(parks[i].state == "NJ"){%>
-              <li><a href="/parks/show/<%= parks[i]._id%>"><%= parks[i].name%></a></li> 
+              <li><a href="/show/<%= parks[i]._id%>"><%= parks[i].name%></a></li> 
           <% }} %>
           </ul>
           <% } %>
           </ul>
       </div>
-      <div><h2><a href="/parks">Back to States.</a></h2></div>
+      <div><h2><a href="/">Back to States.</a></h2></div>
+    </div>  
     </div>
     <footer>
         <% include ../../partials/footer %>
     </footer>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <% include ../../partials/scripts %>
     <script type="text/javascript" src="../../js/scripts.js"></script>
   </body>
 </html>

@@ -8,9 +8,10 @@
       <% include ../partials/header %>
     </header>
     <div class="container">
-      <h3><a href="/parks">Park List</a></h3>
+    <div class="jumbotron">
+      <h3><a href="/">Park List</a></h3>
       <h1>Edit Park</h1>
-      <form action="/parks/update/<%= park._id%>" method="post">
+      <form action="/update/<%= park._id%>" method="post">
           <ul>
             <li>
               <label for="name">Name</label><input type="text" name="name" value="<%= park.name %>" />
@@ -174,10 +175,11 @@
           </ul>
       </form>
     </div>
+    </div>
     <footer>
         <% include ../partials/footer %>
     </footer>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <% include ../partials/scripts %>
     <script type="text/javascript" src="../../js/scripts.js"></script>
   </body>
 </html>

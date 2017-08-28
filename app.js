@@ -38,7 +38,7 @@ app.use(bodyParser.urlencoded({
 
 //require parks routes
 var parks = require('./routes/parks');
-app.use('/parks', parks);
+app.use('/', parks);
 
 //serve client side js and css
 app.use(express.static('public'));

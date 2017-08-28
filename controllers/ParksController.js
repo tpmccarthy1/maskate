@@ -10,13 +10,11 @@ var fs = require('fs');
 var models = require('../models/parks');
 var Park = mongoose.model("Park");
 
+var auth = require("../controllers/AuthController.js");
+
 //create controller for CRUD operations
 
 var parkController = {};
-
-
-//global id variable for saving images
-var id; 
 
 //Add show list of parks function.
 
@@ -120,8 +118,6 @@ parkController.save = function(req, res, next) {
             return res.end(console.log(err));
         }
 
-        var testBoolean = false;
-
 		var park = new Park ({
 	  		name: req.body.name,
 	  		street: req.body.street,
@@ -194,11 +190,11 @@ parkController.delete = function (req, res) {
 		else{
 			console.log("Park deleted.");
 			res.redirect("/parks")
-			
+
 		}
 	});
 };
 
-//export park controller as modult
+//export park controller as module
 
 module.exports = parkController;

@@ -2,7 +2,15 @@ var mongoose = require("mongoose");
 var express = require("express");
 var app = express();
 var path = require('path');
+
+//multer S3 API
 var multer = require("multer");
+var multerS3 = require('multer-s3');
+var AWS = require('aws-sdk');
+AWS.config.loadFromPath('./s3_config.json');
+var s3 = new AWS.S3();
+
+
 var fs = require('fs');
 
 
@@ -94,24 +102,39 @@ parkController.create = function(req, res) {
   res.render("../views/parks/create");
 };
 
+
+
+
 //Add save new park function.
 
 parkController.save = function(req, res, next) {
 
 	   //multer settings	
-	   var storage =   multer.diskStorage({
-  		destination: function (req, file, callback) {
-    		callback(null, './public/uploads');
-  			},
- 		filename: function (req, file, callback) {
-    		callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-  			}
+	 //   var storage =   multer.diskStorage({
+  // 		destination: function (req, file, callback) {
+  //   		callback(null, './public/uploads');
+  // 			},
+ 	// 	filename: function (req, file, callback) {
+  //   		callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+  // 			}
+		// });
+
+	   var cloudStorage = multerS3({
+		    s3: s3,
+		    bucket: "maskate",
+		    contentType: multerS3.AUTO_CONTENT_TYPE,
+		    metadata: function(request, file, ab_callback) {
+		        ab_callback(null, {fieldname: file.fieldname});
+		    },
+		    key: function(request, file, ab_callback) {
+		        var newFileName = Date.now() + "-" + file.originalname;
+		        ab_callback(null, newFileName);
+		    },
 		});
-
 	   	//upload allf iles in form
-  		var upload = multer({ storage : storage }).any();
+  		var upload = multer({ storage : cloudStorage }).any();
 
-		upload(req,res,function(err) {
+		upload(req,res, function(err) {
         // console.log(req.body);
         // console.log(req.files);
         if(err) {
@@ -128,10 +151,10 @@ parkController.save = function(req, res, next) {
 	  		helmets: req.body.helmets,
 	  		description: req.body.description,
 	  		imgs: {
-	  			img0: req.files[0] ? req.files[0].filename : null,
-	  			img1: req.files[1] ? req.files[1].filename : null,
-	  			img2: req.files[2] ? req.files[2].filename : null,
-	  			img3: req.files[3] ? req.files[3].filename : null,
+	  			img0: req.files[0] ? req.files[0].key : null,
+	  			img1: req.files[1] ? req.files[1].key : null,
+	  			img2: req.files[2] ? req.files[2].key : null,
+	  			img3: req.files[3] ? req.files[3].key : null,
 	  		} 
 	  		
   		});
@@ -144,7 +167,7 @@ parkController.save = function(req, res, next) {
    		 } else {
 	      console.log("Successfully created a park.");
 	      id = (park._id);
-	      console.log(id);
+	      console.log(req.files[0].key);
 	      res.redirect("/show/"+id);
 
    		 }

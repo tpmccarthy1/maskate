@@ -7,8 +7,11 @@ var path = require('path');
 var multer = require("multer");
 var multerS3 = require('multer-s3');
 var AWS = require('aws-sdk');
-AWS.config.loadFromPath('./s3_config.json');
-var s3 = new AWS.S3();
+
+var s3 = new AWS.S3({
+	accessKeyId: process.env.S3_KEY,
+  	secretAccessKey: process.env.S3_SECRET
+});
 
 
 var fs = require('fs');

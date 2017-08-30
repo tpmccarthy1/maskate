@@ -8,10 +8,11 @@ var fs = require('fs');
 
 
 //init mongo 
+var mongoUri = process.env.MONGOLAB_URI;
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-mongoose.connect(process.env.MONGOLAB_URI)
+mongoose.connect(mongoUri);
 	.then(() => console.log('connection successful'))
 	.catch((err) => console.error(err));
 

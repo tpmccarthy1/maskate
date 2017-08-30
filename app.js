@@ -12,7 +12,7 @@ var mongoUri = process.env.MONGODB_URI;
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-mongoose.connect(mongoUri);
+mongoose.connect(mongoUri)
 	.then(() => console.log('connection successful'))
 	.catch((err) => console.error(err));
 

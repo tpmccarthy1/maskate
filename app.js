@@ -11,7 +11,7 @@ var fs = require('fs');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-mongoose.connect("mongodb://tom:sayrebrook1@ds161913.mlab.com:61913/maskate")
+mongoose.connect(process.env.MONGOLAB_URI)
 	.then(() => console.log('connection successful'))
 	.catch((err) => console.error(err));
 

@@ -8,7 +8,7 @@ var fs = require('fs');
 
 
 //init mongo 
-var mongoUri = process.env.MONGOLAB_URI;
+var mongoUri = process.env.MONGODB_URI;
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 

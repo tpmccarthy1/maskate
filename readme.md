@@ -4,7 +4,8 @@ Directory app for skateparks in Maryland, New Jersey, Pennsylvania, and Delaware
 
 ## TODO
 
-1. Allow for photo updates.
-2. Design front end.
-3. Deploy to server.
+1. Design Front End
+2. Add Comments
+3. Email Notifications
+
 

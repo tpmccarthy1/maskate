@@ -7,3 +7,7 @@ Icon?
 node_modules
 *.log
 *.gz
+
+#AWS config
+
+s3_config.json

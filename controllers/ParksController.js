@@ -156,7 +156,7 @@ parkController.save = function(req, res, next) {
 	  			img2: req.files[2] ? req.files[2].key : null,
 	  			img3: req.files[3] ? req.files[3].key : null,
 	  		} 
-	  		2
+	  		
   		});
 
    		park.save(function(err) {

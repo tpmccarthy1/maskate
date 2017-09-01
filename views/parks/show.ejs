@@ -10,54 +10,55 @@
     <header>
       <% include ../partials/header %>
     </header>
-    <div class="container">
-    <div class="jumbotron">
-      <h3><a href="/">Skatepark List</a></h3>
-      <h1>Park Detail</h1>
-      <ul>
-          <li>
-            <span>Name: </span><span><%= park.name %></span>
-          </li>
-          <li>
-            <span>Street: </span><span><%= park.street %></span>
-          </li>
-          <li>
-            <span>Town: </span><span><%= park.town %></span>
-          </li>
-          <li>
-            <span>State: </span><span><%= park.state %></span>
-          </li>
-          <li>
-            <span>County: </span><span><%= park.county %></span>
-          </li>
-          <li>
-            <span>Hours: </span><span><%= park.hours %></span>
-          </li>
-           <li>
-            <span>Hemlets: </span><span><%= park.helmets %></span>
-          </li>
-          <li>
-            <span>Description: </span><span><%= park.description %></span>
-          </li>
-          <li>
-            <div class="img-container">
-            <span>Image: </span><p><img src= "https://s3.amazonaws.com/maskate/<%= park.imgs.img0 %>" /></p>
-            <p><img src= "https://s3.amazonaws.com/maskate/<%= park.imgs.img1 %>" /></p>
-            <p><img src= "https://s3.amazonaws.com/maskate/<%= park.imgs.img2 %>" /></p>
-            <p><img src= "https://s3.amazonaws.com/maskate/<%= park.imgs.img3 %>" /></p>
-            <p><img src= "https://s3.amazonaws.com/maskate/<%= park.imgs.img4 %>" /></p>
-            </div>
-
-          </li>
-
-      </ul>
+    <main>
+    <div class="show-park row clearfix">   
+        <div class="intro col">
+        <h3><a href="/">Back to Skatepark List</a></h3>
+        <h1>Park Detail</h1>
+        </div>
+    
+        <ul>
+            <li>
+              <span class="label">Name: </span><span><%= park.name %></span>
+            </li>
+            <li>
+              <span class="label">Street: </span><span><%= park.street %></span>
+            </li>
+            <li>
+              <span class="label">Town: </span><span><%= park.town %></span>
+            </li>
+            <li>
+              <span class="label">State: </span><span><%= park.state %></span>
+            </li>
+            <li>
+              <span class="label">County: </span><span><%= park.county %></span>
+            </li>
+            <li>
+              <span class="label">Hours: </span><span><%= park.hours %></span>
+            </li>
+             <li>
+              <span class="label">Hemlets: </span><span><%= park.helmets %></span>
+            </li>
+            <li>
+              <span class="label">Description: </span><span><%= park.description %></span>
+            </li>
+            <li>
+              <div class="img-container">
+              <span>Images: </span><p><img src= "https://s3.amazonaws.com/maskate/<%= park.imgs.img0 %>" /></p>
+              <p><img src= "https://s3.amazonaws.com/maskate/<%= park.imgs.img1 %>" /></p>
+              <p><img src= "https://s3.amazonaws.com/maskate/<%= park.imgs.img2 %>" /></p>
+              <p><img src= "https://s3.amazonaws.com/maskate/<%= park.imgs.img3 %>" /></p>
+              <p><img src= "https://s3.amazonaws.com/maskate/<%= park.imgs.img4 %>" /></p>
+              </div>
+            </li>
+        </ul>
+      </div>
 <!--       <h3><a href="/parks/edit/<%= park._id%>">EDIT</a></h3>
       <form action="/parks/delete/<%= park._id%>" method="post">
         <button type="submit">DELETE</button>
       </form> -->
-    </div>
-    </div>
-    <footer>
+    </main>
+    <footer class="row clearfix">
         <% include ../partials/footer %>
     </footer>
     <% include ../partials/scripts %>

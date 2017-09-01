@@ -8,8 +8,7 @@
     <header>
       <% include ../../partials/header %>
     </header>
-    <div class="container">
-    <div class="jumbotron">
+    <main>
       <h1>New Jersey Skateparks</h1>
       <% if(parks.length>0) { %>
       <div>
@@ -22,9 +21,8 @@
           </ul>
       </div>
       <div><h2><a href="/">Back to States.</a></h2></div>
-    </div>  
-    </div>
-    <footer>
+    </main>
+    <footer class="row clearfix">
         <% include ../../partials/footer %>
     </footer>
     <% include ../../partials/scripts %>

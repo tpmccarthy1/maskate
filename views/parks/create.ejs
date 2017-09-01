@@ -8,8 +8,7 @@
     <header>
       <% include ../partials/header %>
     </header>
-    <div class="container">
-    <div class="jumbotron">
+    <main>
       <h3><a href="/">Skatepark List</a></h3>
       <h1>Create New Park</h1>
       <form action="/save" method="post" enctype="multipart/form-data">
@@ -193,9 +192,9 @@
             </li>
           </ul>
       </form>
-    </div>  
-    </div>
-    <footer>
+
+    </main>
+    <footer class="row clearfix">
         <% include ../partials/footer %>
     </footer>
     <% include ../partials/scripts %>

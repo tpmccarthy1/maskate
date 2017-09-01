@@ -1,11 +1,12 @@
+@import 'base/_normalize.scss';
+@import 'base/_base.scss';
+@import 'layout/_grid.scss';
 @import 'content/_header';
 @import 'content/_nav.scss';
 @import 'content/_content.scss';
 @import 'content/_footer.scss';
-@import 'layout/_grid.scss';
 @import 'components/_buttons.scss';
 @import 'components/_fonts.scss';
 @import 'components/_shapes.scss';
-@import 'base/_normalize.scss';
-@import 'base/_base.scss';
+
 

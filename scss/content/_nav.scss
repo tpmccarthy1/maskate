@@ -8,9 +8,10 @@ $link-hover-color: #2581DC;
 
 // Outer navigation wrapper
 .navigation {
-  width: 100%;
+  width: 100vw;
   position: fixed;
   top: 0;
+  left: 0;
   height: $nav-height;
   background: $nav-background;
   z-index: 9999;
@@ -101,6 +102,10 @@ nav {
   // Hamburger nav visible on mobile only
   .nav-mobile {
     display: block;
+  }
+  .nav-list{
+    padding: 0;
+    margin-top: 0;
   }
   nav {
     width: 100%;

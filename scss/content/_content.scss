@@ -1,0 +1,169 @@
+body{
+	background: #ddd;
+}
+
+main{
+	padding-top: 69px;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	color: #222;
+	min-height: 85vh;
+
+}
+
+//intro paragraph
+.intro{
+	padding: 10px 0;
+	p{
+	padding: 10px;
+	}
+	h1{
+	font-weight: 300;
+	font-size: 35px;
+	padding: 0 0 10px 0;
+	}
+	h3{
+	background: #222;
+	margin: 20px auto;
+	color: #fff;
+	text-decoration: none;
+	font-weight: 300;
+	font-size: 20px;
+	padding: 10px;
+	width: 60%;
+	a{
+		color: #fff;
+		text-decoration: none;
+		font-weight: 300;
+		font-size: 20px;
+
+		}
+	}
+}
+
+//container for directory navigation
+.dir-container{
+	text-align: center;
+	ul{
+	list-style-type: none;
+	padding: 0;
+		li{
+			background: #222;
+			margin: 20px; 
+		}
+		a{
+			color: #fff;
+			text-decoration: none;
+			font-weight: 300;
+			font-size: 20px;
+		}
+	}
+	h2{
+
+	font-weight: 300;
+	font-size: 35px;
+	padding: 0 0 10px 0;
+	}
+}
+
+//container for forms
+.form-container{
+	width: 80%;
+	margin: 0 auto;
+	.row{
+	padding-top: 15px;
+	}
+	form{
+
+		font-size: 20px;
+	}
+	h2{
+		margin: 20px 0;
+	}
+	.password{
+		padding-top: 10px;
+	}
+	button{
+		margin: 20px 0;
+	}
+}
+
+.img-container{
+	width: 50%;
+	margin: 0 auto;
+	p{
+		padding: 10px;
+	}
+	img{
+		width: 100%;
+	}
+}
+
+footer{
+	position: relative;
+	left: 0;
+	bottom: 0;
+	text-align: center;
+	background-color: #222;
+	
+	height: 60px;
+	margin: 0 auto;
+		p{
+		color: #fff;
+		padding-top: 20px;
+		}
+}
+
+.show-park{
+
+	li{
+	padding-top: 10px;
+	}
+	.label{
+	font-weight: 500;
+	}
+}	
+
+//Desktop styles
+
+@media screen and (min-width: $breakpoint) {
+
+html{
+	min-height: 100%;
+}
+
+main{
+	margin: 0 auto;
+}
+
+.intro{
+	float: none;
+	width: 60%;
+	margin: 0 auto;
+	padding-bottom: 20px
+
+	h1{
+	padding: 20px 0;
+	}
+}
+
+.dir-container{
+	ul{
+		li:hover{
+			background: #999;
+			transition: background 1s;
+		}
+
+	}
+
+}
+
+
+	
+
+}
+
+
+
+

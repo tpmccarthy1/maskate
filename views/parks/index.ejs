@@ -8,21 +8,36 @@
     <header>
       <% include ../partials/header %>
     </header>
-    <div class="container">
-    <div class="jumbotron">
-      <h1>Choose a state</h1>
-      <div>
-        <ul>
-          <li><h2><a href="/states/nj">New Jersey</a></h2></li>
-          <li><h2><a href="/states/de">Delaware</a></h2></li>
-          <li><h2><a href="/states/pa">Pennsylvania</a></h2></li>
-          <li><h2><a href="/states/md">Maryland</a></h2></li>       
-        </ul>
+
+    <main> 
+      <div class="intro col-1-3">
+        <h1>Mid-Atlantic Skatepark Directory</h1>
+        <p>This website was developed to create a directory for all public skateparks in the mid-atlantic area. Areas covered are New Jersey, Delaware, Maryland, and Pennsylvania. This site depends on users to submit parks so feel free to register and start submitting parks. 
+        </p>
       </div>
-    </div>
-    </div>
-    <footer>
+
+      <div class="dir-container row clearfix">   
+          <div class="col-1-2">
+            <h2>Choose a state</h2>
+            <div>
+              <ul>
+                <li><h2><a href="/states/nj">New Jersey</a></h2></li>
+                <li><h2><a href="/states/de">Delaware</a></h2></li>
+                <li><h2><a href="/states/pa">Pennsylvania</a></h2></li>
+                <li><h2><a href="/states/md">Maryland</a></h2></li>       
+              </ul>
+            </div>
+          </div>
+          <!-- google maps -->
+          <div class="col-1-2">
+            <p>Google maps goes here</p>
+          </div>
+        </div>
+      </main>
+    <footer class="row clearfix">
+        <div>
         <% include ../partials/footer %>
+        </div>
     </footer>
     <% include ../partials/scripts %>
     <script type="text/javascript" src="../../js/scripts.js"></script>

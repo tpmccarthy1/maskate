@@ -5,9 +5,8 @@ var User = require("../models/user");
 var userController = {};
 
 // Restrict access to root page
-userController.home = function(req, res) {
+userController.home = function(req, res, next) {
   res.render('../views/parks/index', { user : req.user, username: req.user.username });
-
 };
 
 // Go to registration page
@@ -22,8 +21,8 @@ userController.register = function(req, res) {
 userController.doRegister = function(req, res) {
   User.register(new User({ username : req.body.username, email: req.body.email }), req.body.password, function(err, user) {
     if (err) {
-      console.log(err);
       return res.render('../views/users/register', { user : user });
+
     }
     passport.authenticate('local')(req, res, function () {
       res.redirect('/login');
@@ -51,14 +50,19 @@ userController.login = function(req, res) {
 // Post login
 userController.doLogin = function(req, res) {
   passport.authenticate('local')(req, res, function () {
-    console.log(req.user);
-    res.redirect('/')
+    res.app.locals.username = req.user.username;
+    res.redirect('/');
   });
 };
+
+userController.loginErr = function(req, res) {
+    res.render('/loginerr');
+  }
 
 // logout
 userController.logout = function(req, res) {
   req.logout();
+  res.app.locals.username = undefined;
   res.redirect('/');
 };
 

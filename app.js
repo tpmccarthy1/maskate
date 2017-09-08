@@ -53,6 +53,10 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 
+//local variable
+app.locals.username;
+
+
 app.listen(port, function () {
   console.log('Example app listening on port ' + port + '!');
 });

@@ -60,6 +60,9 @@ router.get('/login', auth.login);
 // route for login action
 router.post('/login', auth.doLogin);
 
+// route for login error action
+router.get('/errlogin', auth.loginErr);
+
 // route for logout action
 router.get('/logout', auth.logout);
 

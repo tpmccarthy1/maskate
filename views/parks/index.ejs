@@ -10,14 +10,14 @@
     </header>
 
     <main> 
-      <div class="intro col-1-3">
+      <div class="intro m-all t-all d-all">
         <h1>Mid-Atlantic Skatepark Directory</h1>
         <p>This website was developed to create a directory for all public skateparks in the mid-atlantic area. Areas covered are New Jersey, Delaware, Maryland, and Pennsylvania. This site depends on users to submit parks so feel free to register and start submitting parks. 
         </p>
       </div>
 
-      <div class="dir-container row clearfix">   
-          <div class="col-1-2">
+      <div class="dir-container m-all t-all">   
+          <div class="m-all t-all d-1of2">
             <h2>Choose a state</h2>
             <div>
               <ul>
@@ -28,13 +28,16 @@
               </ul>
             </div>
           </div>
+          <% var parkLocs = JSON.stringify(parks) %>
+          <input type="hidden" value="<%= parkLocs %>"" id="parkLocs">
+
           <!-- google maps -->
-          <div class="col-1-2">
-            <p>Google maps goes here</p>
+          <div class="m-all t-all d-1of2 map-container">
+            <div id="map"></div>
           </div>
         </div>
       </main>
-    <footer class="row clearfix">
+    <footer class="m-all t-all d-all">
         <div>
         <% include ../partials/footer %>
         </div>

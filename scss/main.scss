@@ -1,12 +1,13 @@
-@import 'base/_normalize.scss';
-@import 'base/_base.scss';
-@import 'layout/_grid.scss';
-@import 'content/_header';
-@import 'content/_nav.scss';
-@import 'content/_content.scss';
-@import 'content/_footer.scss';
-@import 'components/_buttons.scss';
-@import 'components/_fonts.scss';
-@import 'components/_shapes.scss';
-
+@import 'partials/_reset.scss';
+@import 'partials/_grid.scss';
+@import 'partials/_base.scss';
+@media only screen and (min-width: 481px) {
+@import 'partials/_481up.scss';
+}
+@media only screen and (min-width: 768px) {
+@import 'partials/_768up.scss';
+}
+@media only screen and (min-width: 1030px) {
+@import 'partials/_1030up.scss';
+}
 

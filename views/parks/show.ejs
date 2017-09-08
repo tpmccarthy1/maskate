@@ -11,12 +11,12 @@
       <% include ../partials/header %>
     </header>
     <main>
-    <div class="show-park row clearfix">   
+    <div class="m-all t-all d-allshow-park row clearfix">   
         <div class="intro col">
         <h3><a href="/">Back to Skatepark List</a></h3>
         <h1>Park Detail</h1>
         </div>
-    
+        <div class="park-info m-all t-all d-1of2">
         <ul>
             <li>
               <span class="label">Name: </span><span><%= park.name %></span>
@@ -52,13 +52,18 @@
               </div>
             </li>
         </ul>
-      </div>
+        </div>
+        <!-- google maps -->
+          <div class="m-all t-all d-1of2">
+            <p>Google maps goes here</p>
+          </div>
+    </div>
 <!--       <h3><a href="/parks/edit/<%= park._id%>">EDIT</a></h3>
       <form action="/parks/delete/<%= park._id%>" method="post">
         <button type="submit">DELETE</button>
       </form> -->
     </main>
-    <footer class="row clearfix">
+    <footer class="m-all t-all d-all">
         <% include ../partials/footer %>
     </footer>
     <% include ../partials/scripts %>

@@ -1,3 +1,4 @@
+
 $( document ).ready(function() {
 
 console.log("running");
@@ -36,5 +37,32 @@ $('nav ul li a:not(:only-child)').click(function(e) {
 		this.classList.toggle('active');
 	});
 
-	
+
 });
+
+
+//Google maps
+
+function initMap() {
+		var longlat;
+		var local = JSON.parse($('#parkLocs').val());
+		var addressInput = local[0].street + " " + local[0].town + " " + local[0].state;
+		console.log(addressInput);
+		var geocoder = new google.maps.Geocoder();
+		geocoder.geocode({address: addressInput}, function(results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					 var longlat = results[0].geometry.location;
+					 console.log(longlat);
+	   			}
+
+		})
+        var uluru = longlat;
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }

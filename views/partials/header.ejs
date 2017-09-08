@@ -1,6 +1,6 @@
 <!-- views/partials/header.ejs -->
 <!-- Navigation -->
-    <section class="navigation">
+    <section class="navigation m-all t-all d-all">
         <div class="nav-container">
           <div class="brand">
             <a class="navbar-brand" href="/">Mid-Atlantic Skateparks</a>
@@ -20,14 +20,20 @@
                   <a href="/create">Add New Park</a>
                 </li>
                 <li>
-                  <a href="/login">Login</a>
+                  <% if(typeof username != 'undefined'){ %><a href="/logout">Logout</a>
                 </li>
-                <li>
-                  <a href="/logout">Logout</a>
+                <li class="username">
+                  Hi <%= username %>!
+                </li>  
+                  <%} else{%><a href="/login">Login</a>  
                 </li>
                 <li>
                   <a href="/register">Register</a>
                 </li>
+                <%} %>
+                  
+                
+
               </ul>
           </nav>
         </div>

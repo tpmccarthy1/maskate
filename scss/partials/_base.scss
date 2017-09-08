@@ -361,13 +361,14 @@ footer{
 //google maps
 
 .map-container{
-  height: 400px;
+  height: 100%
 }
 
 #map{
-  margin: 0 auto;
-  width: 75%;
-  height: 75%;
+   margin: 0;
+   padding: 0;
+   height: 400px;
+   max-width: none;
 }
 
 

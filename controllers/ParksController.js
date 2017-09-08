@@ -36,7 +36,7 @@ parkController.list = function(req, res){
 			console.log("Error", err);
 		}
 		else{
-			res.render("../views/parks/index", {parks: parks, park_locs: JSON.stringify(parks)});
+			res.render("../views/parks/index", {parks: parks});
 		}
 	});
 };

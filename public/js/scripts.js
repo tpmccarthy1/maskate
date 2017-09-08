@@ -1,7 +1,74 @@
-
 $( document ).ready(function() {
 
 console.log("running");
+
+var map;
+var marker;
+
+function initialize() {
+  var mapOptions = {
+    center: new google.maps.LatLng(40.680898,-8.684059),
+    zoom: 11,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+  
+  //get all park locations and add address to array
+  var local = $.parseJSON($('#parkLocs').val());
+  if(local.length > 1){
+  var addressArr = [];
+  for(var i=0; i<local.length; i++){
+  	addressArr.push(local[i].street + " " + local[i].town + " " + local[i].state);
+  	}
+ } else{
+ 	var addressArr = local.street + " " + local.town + " " + local.state;
+ }
+
+  //Geocode addresses of all parks and set markers
+  
+  var geocoder = new google.maps.Geocoder();
+  	if(Array.isArray(addressArr)){
+	  for(var z=0; z<addressArr.length; z++){
+	  geocoder.geocode({address: addressArr[z]}, function(results, status) {
+
+	    if (status == google.maps.GeocoderStatus.OK) {
+
+	      var myResult = results[0].geometry.location; // reference LatLng value
+
+	      marker = new google.maps.Marker({
+	      map: map,
+	      position: myResult
+	  	  });
+
+	      map.setCenter(myResult);
+
+	      map.setZoom(7);
+
+	    	}
+	  	});
+	  };
+	} else{
+		geocoder.geocode({address: addressArr}, function(results, status) {
+
+	    if (status == google.maps.GeocoderStatus.OK) {
+
+	      var myResult = results[0].geometry.location; // reference LatLng value
+
+	      marker = new google.maps.Marker({
+	      map: map,
+	      position: myResult
+	  	  });
+
+	      map.setCenter(myResult);
+
+	      map.setZoom(12);
+
+	    	}
+	  	});
+	} 
+}  
+
+initialize();
 
 //Create page
 //Dynamically display Counties based on State
@@ -37,32 +104,12 @@ $('nav ul li a:not(:only-child)').click(function(e) {
 		this.classList.toggle('active');
 	});
 
-
 });
 
 
-//Google maps
 
-function initMap() {
-		var longlat;
-		var local = JSON.parse($('#parkLocs').val());
-		var addressInput = local[0].street + " " + local[0].town + " " + local[0].state;
-		console.log(addressInput);
-		var geocoder = new google.maps.Geocoder();
-		geocoder.geocode({address: addressInput}, function(results, status) {
-				if (status == google.maps.GeocoderStatus.OK) {
-					 var longlat = results[0].geometry.location;
-					 console.log(longlat);
-	   			}
 
-		})
-        var uluru = longlat;
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
+
+
+
+

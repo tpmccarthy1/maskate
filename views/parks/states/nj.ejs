@@ -8,24 +8,33 @@
     <header>
       <% include ../../partials/header %>
     </header>
-    <main>
-      <h1>New Jersey Skateparks</h1>
-      <% if(parks.length>0) { %>
-      <div>
-          <ul>
-          <% for(var i=0; i<parks.length;i++){if(parks[i].state == "NJ"){%>
-              <li><a href="/show/<%= parks[i]._id%>"><%= parks[i].name%></a></li> 
-          <% }} %>
-          </ul>
-          <% } %>
-          </ul>
+    <main>    
+      <div class="m-all t-all d-all"><h2><a href="/">Back to States.</a></h2></div>
+      <div class="dir-container m-all t-all">   
+          <div class="m-all t-all d-1of2">
+            <h1>New Jersey Skateparks</h1>
+            <% if(parks.length>0) { %>
+                <ul>
+                  <% for(var i=0; i<parks.length;i++){if(parks[i].state == "NJ"){%>
+                  <li id="<%= parks[i].name %>"><a href="/show/<%= parks[i]._id%>"><%= parks[i].name%></a></li> 
+                  <% }} %>
+                </ul>
+                  <% } %>
+          </div>
       </div>
-      <div><h2><a href="/">Back to States.</a></h2></div>
+      <!-- google maps -->
+      <div class="m-all t-all d-1of2 map-container">
+            <h2>All Parks</h2>
+            <div id="map"></div>
+      </div>
     </main>
     <footer class="m-all t-all d-all">
         <% include ../../partials/footer %>
+        <% include ../../partials/scripts %>
+        <% var parkLocs = JSON.stringify(parks) %>
+        <input type="hidden" value="<%= parkLocs %>"" id="parkLocs">
     </footer>
-    <% include ../../partials/scripts %>
     <script type="text/javascript" src="../../js/scripts.js"></script>
+    <script type="text/javascript" src="../../js/map.js"></script>
   </body>
 </html>

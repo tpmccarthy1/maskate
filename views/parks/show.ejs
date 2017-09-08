@@ -54,19 +54,20 @@
         </ul>
         </div>
         <!-- google maps -->
-          <div class="m-all t-all d-1of2">
-            <p>Google maps goes here</p>
-          </div>
+        <div class="m-all t-all d-1of2 map-container">
+            <h2>All Parks</h2>
+            <div id="map"></div>
+        </div>
     </div>
-<!--       <h3><a href="/parks/edit/<%= park._id%>">EDIT</a></h3>
-      <form action="/parks/delete/<%= park._id%>" method="post">
-        <button type="submit">DELETE</button>
-      </form> -->
     </main>
     <footer class="m-all t-all d-all">
         <% include ../partials/footer %>
+        <% include ../partials/scripts %>
+        <% var parkLocs = JSON.stringify(park) %>
+        <input type="hidden" value="<%= parkLocs %>"" id="parkLocs">
     </footer>
     <% include ../partials/scripts %>
     <script type="text/javascript" src="../../js/scripts.js"></script>
+    <script type="text/javascript" src="../../js/map.js"></script>
   </body>
 </html>

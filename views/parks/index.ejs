@@ -28,11 +28,9 @@
               </ul>
             </div>
           </div>
-          <% var parkLocs = JSON.stringify(parks) %>
-          <input type="hidden" value="<%= parkLocs %>"" id="parkLocs">
-
-          <!-- google maps -->
+                    <!-- google maps -->
           <div class="m-all t-all d-1of2 map-container">
+            <h2>All Parks</h2>
             <div id="map"></div>
           </div>
         </div>
@@ -40,9 +38,13 @@
     <footer class="m-all t-all d-all">
         <div>
         <% include ../partials/footer %>
+        <% include ../partials/scripts %>
         </div>
+    <% var parkLocs = JSON.stringify(parks) %>
+    <input type="hidden" value="<%= parkLocs %>"" id="parkLocs">
     </footer>
     <% include ../partials/scripts %>
     <script type="text/javascript" src="../../js/scripts.js"></script>
+
   </body>
 </html>

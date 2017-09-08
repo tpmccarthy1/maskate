@@ -9,24 +9,30 @@
       <% include ../../partials/header %>
     </header>
     <main>    
-      <div class="m-all t-all d-all"><h2><a href="/">Back to States.</a></h2></div>
-      <div class="dir-container m-all t-all">   
-          <div class="m-all t-all d-1of2">
-            <h1>New Jersey Skateparks</h1>
-            <% if(parks.length>0) { %>
-                <ul>
-                  <% for(var i=0; i<parks.length;i++){if(parks[i].state == "NJ"){%>
-                  <li id="<%= parks[i].name %>"><a href="/show/<%= parks[i]._id%>"><%= parks[i].name%></a></li> 
-                  <% }} %>
-                </ul>
-                  <% } %>
-          </div>
+    <div class="intro m-all t-all d-all">
+        <h1>New Jersey</h1>
+        <p>Click a county below to browse parks. New counties are automically added as parks are added to the directory. Don't see your park? Add it <a href="/create">here!</a>
+        </p>
       </div>
+      <div class="state-container m-all t-all"> 
+          <div class="m-all t-all d-1of2">
+                <ul>
+                <!-- loop over parks and display based on county -->
+                <% if(Object.keys(parks).length > 0) { %>
+                  <% Object.keys(parks).forEach(function(key) { if(parks[key].state == "NJ"){%>  
+                  <li class="collapsible"><h2><%= parks[key].county %></h2></li>             
+                  <a href="/show/<%= parks[key]._id%>"><li id="<%= parks[key].name %>">
+                        <%= parks[key].name %>
+                    </li></a>                                   
+                  <% }})};%>
+                </ul>  
+          </div>
       <!-- google maps -->
       <div class="m-all t-all d-1of2 map-container">
-            <h2>All Parks</h2>
+            <h2>Map</h2>
             <div id="map"></div>
       </div>
+    </div>
     </main>
     <footer class="m-all t-all d-all">
         <% include ../../partials/footer %>
@@ -35,6 +41,5 @@
         <input type="hidden" value="<%= parkLocs %>"" id="parkLocs">
     </footer>
     <script type="text/javascript" src="../../js/scripts.js"></script>
-    <script type="text/javascript" src="../../js/map.js"></script>
   </body>
 </html>

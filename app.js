@@ -43,8 +43,6 @@ app.use('/', parks);
 
 //serve client side js and css
 app.use(express.static('public'));
-app.use(express.static('uploads'));
-
 
 //Passport stuff
 var User = require('./models/user');

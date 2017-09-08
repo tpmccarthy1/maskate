@@ -7,7 +7,7 @@ var marker;
 
 function initialize() {
   var mapOptions = {
-    center: new google.maps.LatLng(40.680898,-8.684059),
+    center: new google.maps.LatLng(39.9526, -75.1652),
     zoom: 11,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
@@ -103,6 +103,11 @@ $('nav ul li a:not(:only-child)').click(function(e) {
 	$('#nav-toggle').on('click', function() {
 		this.classList.toggle('active');
 	});
+
+//Collapse counties on state page
+ $('.collapsible').click(function(){
+        $(this).next().stop(true, true).slideToggle();
+    }).next().hide()
 
 });
 

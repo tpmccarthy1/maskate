@@ -1,11 +1,19 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+@font-face {
+  font-family: 'StateFaceRegular';
+  src: url("../fonts/stateface-regular-webfont.eot");
+  src: url("../fonts/stateface-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/stateface-regular-webfont.woff") format("woff"), url("../fonts/stateface-regular-webfont.ttf") format("truetype"), url("../fonts/stateface-regular-webfont.svg#StateFaceRegular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
 /* Eric Meyer's CSS Reset
    http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
    This is a Sass partial
 */
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -418,12 +426,29 @@ main {
     .dir-container ul a {
       color: #fff;
       text-decoration: none;
-      font-weight: 300;
-      font-size: 20px; }
+      font-weight: 300; }
   .dir-container h2 {
     font-weight: 300;
-    font-size: 35px;
-    padding: 0 0 10px 0; }
+    font-size: 25px;
+    padding: 5px;
+    margin: 20px; }
+
+.state-container h1, .state-container h2 {
+  background: #222;
+  margin: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 25px;
+  padding: 5px;
+  transition: background 1s; }
+  .state-container h1:hover, .state-container h2:hover {
+    background: #c2c2c2;
+    cursor: pointer; }
+
+.state-container li {
+  text-decoration: none;
+  font-weight: 300; }
 
 .form-container {
   width: 80%;
@@ -486,12 +511,22 @@ footer {
   text-decoration: none; }
 
 .map-container {
-  height: 400px; }
+  height: 100%; }
+  .map-container h2 {
+    background: #444;
+    color: #fff;
+    margin: 20px; }
+    .map-container h2:hover {
+      background: #444; }
 
 #map {
-  margin: 0 auto;
-  width: 75%;
-  height: 75%; }
+  margin: 20px;
+  padding: 0;
+  height: 400px;
+  max-width: none;
+  -webkit-box-shadow: 4px 5px 15px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 5px 15px -4px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 5px 15px -4px rgba(0, 0, 0, 0.75); }
 
 @media only screen and (min-width: 768px) {
   .string li {

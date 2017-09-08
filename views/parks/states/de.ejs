@@ -8,26 +8,38 @@
     <header>
       <% include ../../partials/header %>
     </header>
-    <div class="container">
-    <div class="jumbotron">
-      <h1>Delaware Skateparks</h1>
-      <% if(parks.length>0) { %>
-      <div>
-          <ul>
-          <% for(var i=0; i<parks.length;i++){if(parks[i].state == "DE"){%>
-              <li><a href="/show/<%= parks[i]._id%>"><%= parks[i].name%></a></li> 
-          <% }} %>
-          </ul>
-          <% } %>
-          </ul>
+    <main>    
+    <div class="intro m-all t-all d-all">
+        <h1>Delaware</h1>
+        <p>Click a county below to browse parks. New counties are automically added as parks are added to the directory. Don't see your park? Add it <a href="/create">here!</a>
+        </p>
       </div>
-      <div><h2><a href="/">Back to States.</a></h2></div>
+      <div class="state-container m-all t-all"> 
+          <div class="m-all t-all d-1of2">
+                <ul>
+                <!-- loop over parks and display based on county -->
+                <% if(Object.keys(parks).length > 0) { %>
+                  <% Object.keys(parks).forEach(function(key) { if(parks[key].state == "DE"){%>  
+                  <li class="collapsible"><h2><%= parks[key].county %></h2></li>             
+                  <a href="/show/<%= parks[key]._id%>"><li id="<%= parks[key].name %>">
+                        <%= parks[key].name %>
+                    </li></a>                                   
+                  <% }})};%>
+                </ul>  
+          </div>
+      <!-- google maps -->
+      <div class="m-all t-all d-1of2 map-container">
+            <h2>Map</h2>
+            <div id="map"></div>
+      </div>
     </div>
-    </div>
-    <footer class="row clearfix">
+    </main>
+    <footer class="m-all t-all d-all">
         <% include ../../partials/footer %>
+        <% include ../../partials/scripts %>
+        <% var parkLocs = JSON.stringify(parks) %>
+        <input type="hidden" value="<%= parkLocs %>"" id="parkLocs">
     </footer>
-    <% include ../../partials/scripts %>
     <script type="text/javascript" src="../../js/scripts.js"></script>
   </body>
 </html>

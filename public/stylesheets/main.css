@@ -513,7 +513,9 @@ footer {
 .map-container {
   height: 100%; }
   .map-container h2 {
+    font-size: 25px;
     background: #444;
+    font-weight: 300;
     color: #fff;
     margin: 20px; }
     .map-container h2:hover {
